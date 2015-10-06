@@ -1,0 +1,8 @@
+{
+   "id": "myHelloWorldApp",
+   "version": "0.0.1",
+   "name": "Hello world",
+   "author": "SiteVision AB",
+   "description": "A simple hello world app",
+   "helpUrl": "https:/help.sitevision.se"
+}

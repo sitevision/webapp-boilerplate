@@ -1,0 +1,13 @@
+{
+   "properties": [
+      {
+         "name": "name",
+         "type": "sv.textField",
+         "label": "A name",
+         "value": "John Doe",
+         "options": {
+            "placeholder": "John Doe"
+         }
+      }
+   ]
+}
