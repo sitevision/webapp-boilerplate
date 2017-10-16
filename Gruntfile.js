@@ -18,7 +18,7 @@ module.exports = function(grunt) {
       http_upload: {
          upload: {
             options: {
-               url: 'http://<%= username %>:<%= password %>@<%= domain %>/edit-api/1/<%= siteId %>/<%= siteId %>/webappupload',
+               url: 'http://<%= username %>:<%= password %>@<%= domain %>/rest-api/1/0/<%= siteName %>/Addon%20Repository/<%= addonName %>/webAppImport',
                onComplete: function(data) {
                   console.log('Response: ' + data);
                }
@@ -35,28 +35,34 @@ module.exports = function(grunt) {
                   {
                      name: 'domain',
                      type: 'input',
-                     message: 'Website domain(www.example.com)'
+                     message: 'Website domain (www.example.com)'
                   },
                   {
-                     name: 'siteId',
+                     name: 'siteName',
                      type: 'input',
-                     message: 'SiteId(2.xxxx)'
+                     message: 'Site name'
+                  },
+                  {
+                     name: 'addonName',
+                     type: 'input',
+                     message: 'Addon name'
                   },
                   {
                      name: 'username',
                      type: 'input',
-                     message: 'Username?'
+                     message: 'Username'
                   },
                   {
                      name: 'password',
                      type: 'password',
-                     message: 'Password?'
+                     message: 'Password'
                   }
                ],
                then: function(results, done) {
                   grunt.file.write('.dev_properties.json', JSON.stringify({
                      domain: results.domain,
-                     siteId: results.siteId,
+                     siteName: results.siteName,
+                     addonName: results.addonName,
                      username: results.username,
                      password: results.password
                   }));
@@ -71,7 +77,8 @@ module.exports = function(grunt) {
    grunt.loadNpmTasks('grunt-prompt');
 
    grunt.registerTask('setup', 'prompt:setupdev');
-   grunt.registerTask('install', function() {
+   grunt.registerTask('zip', 'compress');
+   grunt.registerTask('deploy', function() {
       if (grunt.file.exists(DEV_PROPERTIES)) {
          grunt.config.merge(JSON.parse(grunt.file.read(DEV_PROPERTIES)));
          grunt.task.run(['compress', 'http_upload:upload']);

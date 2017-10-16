@@ -1,8 +1,8 @@
 {
-   "id": "myHelloWorldApp",
+   "id": "myWebApp",
    "version": "0.0.1",
-   "name": "Hello world",
+   "name": "WebApp boilerplate",
    "author": "SiteVision AB",
-   "description": "A simple hello world app",
-   "helpUrl": "https:/help.sitevision.se"
+   "description": "A web app boilerplate",
+   "helpUrl": "https://help.sitevision.se"
 }
