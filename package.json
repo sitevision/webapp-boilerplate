@@ -7,6 +7,11 @@
     "type": "git",
     "url": "git+https://github.com/sitevision/webapp-boilerplate.git"
   },
+  "scripts": {
+    "setup": "grunt setup",
+    "zip": "grunt zip",
+    "deploy": "grunt deploy"
+  },
   "license": "MIT",
   "author": "SiteVision AB",
   "bugs": {

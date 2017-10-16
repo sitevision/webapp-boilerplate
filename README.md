@@ -4,7 +4,7 @@ Boilerplate code for a simple webapp
 * `git clone https://github.com/sitevision/webapp-boilerplate.git`
 * `cd webapp-boilerplate`
 * `npm install`
-* `grunt setup`
+* `npm run setup`
 ## Building 
-* `grunt zip` compress `/src` into `/dist`
-* `grunt deploy` compress `/src` into `/dist` and upload to the addon configured in the setup task 
+* `npm run zip` compress `/src` into `/dist`
+* `npm run deploy` compress `/src` into `/dist` and upload to the addon configured in the setup task 
