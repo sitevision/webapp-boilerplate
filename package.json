@@ -1,25 +1,22 @@
 {
   "name": "webapp-boilerplate",
   "version": "1.0.0",
-  "description": "A simple hello world web app",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "A simple SiteVision web app boilerplate",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sitevision/webapp-boilerplate.git"
   },
-  "author": "SiteVision AB",
   "license": "MIT",
+  "author": "SiteVision AB",
   "bugs": {
     "url": "https://github.com/sitevision/webapp-boilerplate/issues"
   },
   "homepage": "https://github.com/sitevision/webapp-boilerplate#readme",
   "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-contrib-compress": "^0.13.0",
-    "grunt-http-upload": "^0.1.8",
+    "grunt": "^1.0.1",
+    "grunt-contrib-compress": "^1.4.3",
+    "grunt-http-upload": "^0.3.2",
     "grunt-prompt": "^1.3.0"
   }
 }
