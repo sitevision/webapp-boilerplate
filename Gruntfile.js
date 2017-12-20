@@ -18,7 +18,7 @@ module.exports = function(grunt) {
       http_upload: {
          upload: {
             options: {
-               url: 'http://<%= username %>:<%= password %>@<%= domain %>/rest-api/1/0/<%= siteName %>/Addon%20Repository/<%= addonName %>/webAppImport',
+               url: 'http://<%= username %>:<%= password %>@<%= domain %>/rest-api/1/0/<%= siteName %>/Addon%20Repository/<%= addonName %>/webAppImport<% if (force) { %>?force=true<% } %>',
                onComplete: function(data) {
                   console.log('Response: ' + data);
                }
@@ -81,6 +81,7 @@ module.exports = function(grunt) {
    grunt.registerTask('deploy', function() {
       if (grunt.file.exists(DEV_PROPERTIES)) {
          grunt.config.merge(JSON.parse(grunt.file.read(DEV_PROPERTIES)));
+         grunt.config.set('force', grunt.option('force-deploy'));
          grunt.task.run(['compress', 'http_upload:upload']);
       } else {
          grunt.log.write('Must run setup first');
