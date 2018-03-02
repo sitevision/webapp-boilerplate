@@ -1,5 +1,5 @@
 # webapp-boilerplate
-Boilerplate code for a simple webapp
+Boilerplate code for a simple WebApp
 ## Setup
 * `git clone https://github.com/sitevision/webapp-boilerplate.git`
 * `cd webapp-boilerplate`
