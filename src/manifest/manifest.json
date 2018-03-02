@@ -3,6 +3,7 @@
    "version": "0.0.1",
    "name": "WebApp boilerplate",
    "author": "SiteVision AB",
-   "description": "A web app boilerplate",
-   "helpUrl": "https://help.sitevision.se"
+   "description": "A WebApp boilerplate",
+   "helpUrl": "https://help.sitevision.se",
+   "type": "WebApp"
 }

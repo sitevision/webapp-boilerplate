@@ -1,7 +1,7 @@
 {
   "name": "webapp-boilerplate",
   "version": "1.0.0",
-  "description": "A simple SiteVision web app boilerplate",
+  "description": "A simple SiteVision WebApp boilerplate",
   "main": "index.js",
   "repository": {
     "type": "git",
