@@ -6,6 +6,7 @@ Boilerplate code for a simple WebApp
 * `npm install`
 * `npm run setup`
 ## Building
+* `npm run create-addon` create an addon with the name configured in the setup task
 * `npm run zip` compress `/src` into `/dist`
 * `npm run deploy` compress `/src` into `/dist` and upload to the addon configured in the setup task
 * `npm run force-deploy` compress `/src` into `/dist` and upload to the addon configured in the setup task. This will overwrite the current webapp if it has the same webapp-version defined in manifest.json.

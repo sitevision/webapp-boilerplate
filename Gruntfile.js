@@ -28,6 +28,20 @@ module.exports = function(grunt) {
          }
       },
 
+      http: {
+         create_addon: {
+            options: {
+               url: 'http://<%= username %>:<%= password %>@<%= domain %>/rest-api/1/0/<%= siteName %>/Addon%20Repository/custommodule',
+               method: 'POST',
+               json: true,
+               body: {
+                  name: '<%= addonName %>',
+                  category: 'Other'
+               }
+            }
+         }
+      },
+
       prompt: {
          setupdev: {
             options: {
@@ -75,9 +89,19 @@ module.exports = function(grunt) {
    grunt.loadNpmTasks('grunt-contrib-compress');
    grunt.loadNpmTasks('grunt-http-upload');
    grunt.loadNpmTasks('grunt-prompt');
+   grunt.loadNpmTasks('grunt-http');
 
    grunt.registerTask('setup', 'prompt:setupdev');
    grunt.registerTask('zip', 'compress');
+   grunt.registerTask('create-addon', function() {
+      if (grunt.file.exists(DEV_PROPERTIES)) {
+         grunt.config.merge(JSON.parse(grunt.file.read(DEV_PROPERTIES)));
+         grunt.task.run('http:create_addon');
+      } else {
+         grunt.log.write('Must run setup first');
+      }
+   });
+
    grunt.registerTask('deploy', function() {
       if (grunt.file.exists(DEV_PROPERTIES)) {
          grunt.config.merge(JSON.parse(grunt.file.read(DEV_PROPERTIES)));
