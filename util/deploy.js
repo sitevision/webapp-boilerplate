@@ -1,0 +1,29 @@
+var
+   fs            = require('fs'),
+   request       = require('request');
+   properties    = require('../util/properties');
+
+(function () {
+   var props = properties.getDevProperties(),
+      url = `http://${props.username}:${props.password}@${props.domain}/rest-api/1/0/${props.siteName}/Addon%20Repository/${props.addonName}/webAppImport`,
+      manifest = properties.getManifest(),
+      formData = {
+         file: fs.createReadStream(properties.DIST_DIR_PATH + '/' + manifest.id + '.zip')
+      };
+
+   if (process.argv[2] === 'force') {
+      url += '?force=true';
+   }
+
+   request.post({url: url, formData: formData}, (err, httpResponse, body) => {
+      if (err) {
+         return console.error('Upload failed:', err);
+      }
+
+      if (httpResponse.statusCode === 200) {
+         return console.log('Upload successful: \n', JSON.stringify(JSON.parse(body), null, 2));
+      }
+      
+      return console.log('Upload failed: \n', JSON.stringify(JSON.parse(body), null, 2));
+   });
+})();
