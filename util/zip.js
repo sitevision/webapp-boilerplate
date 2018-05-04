@@ -10,7 +10,7 @@ var
 
    var manifest = properties.getManifest();
 
-   zipdir(properties.SRC_DIR_PATH, { saveTo: properties.DIST_DIR_PATH + '/' + manifest.id + '.zip' }, (err) => {
+   zipdir(properties.SRC_DIR_PATH, {saveTo: properties.DIST_DIR_PATH + '/' + manifest.id + '.zip'}, (err) => {
       if (err) {
          return console.error('Compression failed:', err);
       }

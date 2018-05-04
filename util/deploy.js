@@ -1,3 +1,5 @@
+//Uncomment when using self-signed or otherwise incorrect certificates
+//process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 var
    fs            = require('fs'),
    request       = require('request');
@@ -5,7 +7,7 @@ var
 
 (function () {
    var props = properties.getDevProperties(),
-      url = `http://${props.username}:${props.password}@${props.domain}/rest-api/1/0/${props.siteName}/Addon%20Repository/${props.addonName}/webAppImport`,
+      url = `https://${props.username}:${props.password}@${props.domain}/rest-api/1/0/${props.siteName}/Addon%20Repository/${props.addonName}/webAppImport`,
       manifest = properties.getManifest(),
       formData = {
          file: fs.createReadStream(properties.DIST_DIR_PATH + '/' + manifest.id + '.zip')
@@ -24,6 +26,6 @@ var
          return console.log('Upload successful: \n', JSON.stringify(JSON.parse(body), null, 2));
       }
       
-      return console.log('Upload failed: \n', JSON.stringify(JSON.parse(body), null, 2));
+      console.log('Upload failed: \n', JSON.stringify(JSON.parse(body), null, 2));
    });
 })();

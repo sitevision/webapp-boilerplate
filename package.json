@@ -12,7 +12,9 @@
     "zip": "node util/zip.js",
     "deploy": "npm run zip && node util/deploy.js",
     "force-deploy": "npm run zip && node util/deploy.js force",
-    "create-addon": "node util/create-addon.js"
+    "create-addon": "node util/create-addon.js",
+    "sign": "npm run zip && node util/sign.js",
+    "prod-deploy": "node util/prod-deploy.js"
   },
   "license": "MIT",
   "author": "SiteVision AB",

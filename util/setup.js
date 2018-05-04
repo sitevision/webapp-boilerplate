@@ -7,24 +7,24 @@ var
    var questions = [
       {
          name: 'domain',
-         message: 'Website domain (www.example.com)'
+         message: 'Development domain (www.example.com)'
       },
       {
          name: 'siteName',
-         message: 'Site name'
+         message: 'Development site name'
       },
       {
          name: 'addonName',
-         message: 'Addon name'
+         message: 'Development addon name'
       },
       {
          name: 'username',
-         message: 'Username'
+         message: 'Username for development site'
       },
       {
          name: 'password',
          type: 'password',
-         message: 'Password'
+         message: 'Password for development site'
       }
    ];
 
