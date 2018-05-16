@@ -2,8 +2,8 @@
 //process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 var
    fs            = require('fs'),
-   request       = require('request');
-   properties    = require('../util/properties');
+   request       = require('request'),
+   properties    = require('../util/properties'),
    queryString   = require('querystring');
 
 (function () {

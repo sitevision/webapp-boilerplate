@@ -1,6 +1,6 @@
 var
-   request       = require('request');
-   properties    = require('../util/properties');
+   request       = require('request'),
+   properties    = require('../util/properties'),
    queryString   = require('querystring');
 
 (function () {

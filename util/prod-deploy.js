@@ -2,7 +2,7 @@ var
    inquirer    = require('inquirer'),
    fs          = require('fs'),
    request     = require('request'),
-   properties  = require('../util/properties');
+   properties  = require('../util/properties'),
    queryString = require('querystring');
 
 (function () {
