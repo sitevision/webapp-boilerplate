@@ -1,5 +1,6 @@
 //Uncomment when using self-signed or otherwise incorrect certificates
 //process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
 var
    fs            = require('fs'),
    request       = require('request');
