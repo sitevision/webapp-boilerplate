@@ -2,7 +2,8 @@ var
    inquirer    = require('inquirer'),
    fs          = require('fs'),
    request     = require('request'),
-   properties  = require('../util/properties');
+   properties  = require('../util/properties'),
+   queryString = require('querystring');
 
 (function () {
    var props = properties.getDevProperties(),
@@ -34,7 +35,7 @@ var
       ];
 
    inquirer.prompt(questions).then(answers => {
-      var url = `https://${answers.username}:${answers.password}@${answers.domain}/rest-api/1/0/${answers.siteName}/Addon%20Repository/${answers.addonName}/webAppImport`,
+      var url = `https://${answers.username}:${answers.password}@${answers.domain}/rest-api/1/0/${queryString.escape(answers.siteName)}/Addon%20Repository/${answers.addonName}/webAppImport`,
          manifest = properties.getManifest(),
          formData = {
             file: fs.createReadStream(properties.DIST_DIR_PATH + '/' + manifest.id + '-signed.zip')
