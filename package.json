@@ -23,9 +23,9 @@
   },
   "homepage": "https://github.com/sitevision/webapp-boilerplate#readme",
   "devDependencies": {
-    "inquirer": "^5.2.0",
-    "jsonfile": "^4.0.0",
-    "request": "^2.87.0",
+    "inquirer": "^6.2.2",
+    "jsonfile": "^5.0.0",
+    "request": "^2.88.0",
     "zip-dir": "^1.0.2"
   }
 }

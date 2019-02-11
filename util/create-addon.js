@@ -19,6 +19,10 @@ var
          return console.log('Addon creation successful: \n', JSON.stringify(JSON.parse(body), null, 2));
       }
 
-      console.log('Addon creation failed: \n', JSON.stringify(JSON.parse(body), null, 2));
+      if (body) {
+         console.log('Addon creation failed: \n', JSON.stringify(JSON.parse(body), null, 2));
+      } else {
+         console.log(`Addon creation failed, status code: ${httpResponse.statusCode}`);
+      }
    });
 })();

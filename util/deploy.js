@@ -28,6 +28,10 @@ var
          return console.log('Upload successful: \n', JSON.stringify(JSON.parse(body), null, 2));
       }
 
-      console.log('Upload failed: \n', JSON.stringify(JSON.parse(body), null, 2));
+      if (body) {
+         console.log('Upload failed: \n', JSON.stringify(JSON.parse(body), null, 2));
+      } else {
+         console.log(`Upload failed, status code: ${httpResponse.statusCode}`);
+      }
    });
 })();
