@@ -8,7 +8,7 @@ var
 
 (function () {
    var props = properties.getDevProperties(),
-      url = `https://${props.username}:${props.password}@${props.domain}/rest-api/1/0/${queryString.escape(props.siteName)}/Addon%20Repository/custommodule`;
+      url = `https://${encodeURIComponent(props.username)}:${encodeURIComponent(props.password)}@${props.domain}/rest-api/1/0/${queryString.escape(props.siteName)}/Addon%20Repository/custommodule`;
 
    request.post({url: url, form: {name: props.addonName, category: 'Other'}}, (err, httpResponse, body) => {
       if (err) {

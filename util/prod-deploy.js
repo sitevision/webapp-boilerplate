@@ -35,7 +35,7 @@ var
       ];
 
    inquirer.prompt(questions).then(answers => {
-      var url = `https://${answers.username}:${answers.password}@${answers.domain}/rest-api/1/0/${queryString.escape(answers.siteName)}/Addon%20Repository/${answers.addonName}/webAppImport`,
+      var url = `https://${encodeURIComponent(answers.username)}:${encodeURIComponent(answers.password)}@${answers.domain}/rest-api/1/0/${queryString.escape(answers.siteName)}/Addon%20Repository/${answers.addonName}/webAppImport`,
          manifest = properties.getManifest(),
          formData = {
             file: fs.createReadStream(properties.DIST_DIR_PATH + '/' + manifest.id + '-signed.zip')

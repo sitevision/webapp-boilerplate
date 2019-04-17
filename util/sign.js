@@ -22,7 +22,7 @@ var
    ];
 
    inquirer.prompt(questions).then(answers => {
-      var url = `https://${answers.username}:${answers.password}@developer.sitevision.se/rest-api/appsigner/signapp`,
+      var url = `https://${encodeURIComponent(answers.username)}:${encodeURIComponent(answers.password)}@developer.sitevision.se/rest-api/appsigner/signapp`,
          manifest = properties.getManifest(),
          fileName = manifest.id + '.zip',
          formData = {

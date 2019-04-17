@@ -9,7 +9,7 @@ var
 
 (function () {
    var props = properties.getDevProperties(),
-      url = `https://${props.username}:${props.password}@${props.domain}/rest-api/1/0/${queryString.escape(props.siteName)}/Addon%20Repository/${props.addonName}/webAppImport`,
+      url = `https://${encodeURIComponent(props.username)}:${encodeURIComponent(props.password)}@${props.domain}/rest-api/1/0/${queryString.escape(props.siteName)}/Addon%20Repository/${props.addonName}/webAppImport`,
       manifest = properties.getManifest(),
       formData = {
          file: fs.createReadStream(properties.DIST_DIR_PATH + '/' + manifest.id + '.zip')
