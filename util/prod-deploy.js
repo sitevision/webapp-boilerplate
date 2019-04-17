@@ -3,7 +3,8 @@ var
    fs          = require('fs'),
    request     = require('request'),
    properties  = require('../util/properties'),
-   queryString = require('querystring');
+   queryString = require('querystring'),
+   chalk       = require('chalk');
 
 (function () {
    var props = properties.getDevProperties(),
@@ -43,17 +44,17 @@ var
 
       request.post({url: url, formData: formData}, (err, httpResponse, body) => {
          if (err) {
-            return console.error('\x1b[31mUpload failed:\x1b[0m', err);
+            return console.error(`${chalk.red('Upload failed:')}, ${err}`);
          }
 
          if (httpResponse.statusCode === 200) {
-            return console.log('\x1b[32mUpload successful:\x1b[0m \n', JSON.stringify(JSON.parse(body), null, 2));
+            return console.log(`${chalk.green('Upload successful:')} \n${JSON.stringify(JSON.parse(body), null, 2)}`);
          }
 
          if (body) {
-            console.log('\x1b[31mUpload failed:\x1b[0m \n', JSON.stringify(JSON.parse(body), null, 2));
+            console.log(`${chalk.red('Upload failed:')} \n${JSON.stringify(JSON.parse(body), null, 2)}`);
          } else {
-            console.log(`\x1b[31mUpload failed, status code:\x1b[0m ${httpResponse.statusCode}`);
+            console.log(`${chalk.red('Upload failed, status code:')} ${httpResponse.statusCode}`);
          }
       });
    });

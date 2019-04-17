@@ -2,7 +2,8 @@ var
    inquirer    = require('inquirer'),
    fs          = require('fs'),
    request     = require('request'),
-   properties  = require('../util/properties');
+   properties  = require('../util/properties'),
+   chalk       = require('chalk');
 
 (function () {
    var questions = [
@@ -41,21 +42,21 @@ var
 
       request.post({url: url, formData: formData, encoding: null}, (err, httpResponse, body) => {
          if (err) {
-            return console.error('\x1b[31mSigning failed:\x1b[0m', err);
+            return console.error(`${chalk.red('Signing failed:')}, ${err}`);
          }
 
          if (httpResponse.statusCode === 200) {
             var signedFileNameAndPath = properties.DIST_DIR_PATH + '/' + manifest.id + '-signed.zip';
 
             fs.writeFileSync(signedFileNameAndPath, body);
-            return console.log('\x1b[32mSigning successful, created:\x1b[0m ' + signedFileNameAndPath);
+            return console.log(`${chalk.green('Signing successful, created:')} ${signedFileNameAndPath}`);
          }
 
          if (httpResponse.statusCode === 401) {
-            return console.log('\x1b[31mSigning failed:\x1b[0m Unauthorized, check username and password');
+            return console.log(`${chalk.red('Signing failed:')} Unauthorized, check username and password`);
          }
 
-         console.log('\x1b[31mSigning failed with statusCode:\x1b[0m ' + httpResponse.statusCode + ' message: ' + httpResponse.statusMessage);
+         console.log(`${chalk.red('Signing failed with statusCode:')} ${httpResponse.statusCode}  message: ${httpResponse.statusMessage}`);
       });
    });
 })();

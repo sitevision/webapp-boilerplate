@@ -1,7 +1,8 @@
 var
    zipdir      = require('zip-dir'),
    fs          = require('fs'),
-   properties  = require('../util/properties');
+   properties  = require('../util/properties'),
+   chalk       = require('chalk');
 
 (function () {
    if (!fs.existsSync(properties.DIST_DIR_PATH)) {
@@ -12,9 +13,9 @@ var
 
    zipdir(properties.SRC_DIR_PATH, {saveTo: properties.DIST_DIR_PATH + '/' + manifest.id + '.zip'}, (err) => {
       if (err) {
-         return console.error('\x1b[31mCompression failed:\x1b[0m', err);
+         return console.error(`${chalk.red('Compression failed:')}, ${err}`);
       }
 
-      console.log('\x1b[32mCompression successful\x1b[0m');
+      console.log(`${chalk.green('Compression successful')}`);
    });
 })();
