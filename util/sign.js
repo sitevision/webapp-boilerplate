@@ -41,21 +41,21 @@ var
 
       request.post({url: url, formData: formData, encoding: null}, (err, httpResponse, body) => {
          if (err) {
-            return console.error('Signing failed:', err);
+            return console.error('\x1b[31mSigning failed:\x1b[0m', err);
          }
 
          if (httpResponse.statusCode === 200) {
             var signedFileNameAndPath = properties.DIST_DIR_PATH + '/' + manifest.id + '-signed.zip';
 
             fs.writeFileSync(signedFileNameAndPath, body);
-            return console.log('Signing successful, created: ' + signedFileNameAndPath);
+            return console.log('\x1b[32mSigning successful, created:\x1b[0m ' + signedFileNameAndPath);
          }
 
          if (httpResponse.statusCode === 401) {
-            return console.log('Signing failed: Unauthorized, check username and password');
+            return console.log('\x1b[31mSigning failed:\x1b[0m Unauthorized, check username and password');
          }
 
-         console.log('Signing failed with statusCode: ' + httpResponse.statusCode + ' message: ' + httpResponse.statusMessage);
+         console.log('\x1b[31mSigning failed with statusCode:\x1b[0m ' + httpResponse.statusCode + ' message: ' + httpResponse.statusMessage);
       });
    });
 })();

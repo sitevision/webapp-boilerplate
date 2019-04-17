@@ -12,9 +12,9 @@ var
 
    zipdir(properties.SRC_DIR_PATH, {saveTo: properties.DIST_DIR_PATH + '/' + manifest.id + '.zip'}, (err) => {
       if (err) {
-         return console.error('Compression failed:', err);
+         return console.error('\x1b[31mCompression failed:\x1b[0m', err);
       }
 
-      console.log('Compression successful');
+      console.log('\x1b[32mCompression successful\x1b[0m');
    });
 })();

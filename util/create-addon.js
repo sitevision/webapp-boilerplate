@@ -12,17 +12,17 @@ var
 
    request.post({url: url, form: {name: props.addonName, category: 'Other'}}, (err, httpResponse, body) => {
       if (err) {
-         return console.error('Addon creation failed:', err);
+         return console.error('\x1b[31mAddon creation failed:\x1b[0m', err);
       }
 
       if (httpResponse.statusCode === 200) {
-         return console.log('Addon creation successful: \n', JSON.stringify(JSON.parse(body), null, 2));
+         return console.log('\x1b[32mAddon creation successful:\x1b[0m \n', JSON.stringify(JSON.parse(body), null, 2));
       }
 
       if (body) {
-         console.log('Addon creation failed: \n', JSON.stringify(JSON.parse(body), null, 2));
+         console.log('\x1b[31mAddon creation failed:\x1b[0m \n', JSON.stringify(JSON.parse(body), null, 2));
       } else {
-         console.log(`Addon creation failed, status code: ${httpResponse.statusCode}`);
+         console.log(`\x1b[31mAddon creation failed, status code:\x1b[0m ${httpResponse.statusCode}`);
       }
    });
 })();
