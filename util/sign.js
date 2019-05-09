@@ -2,7 +2,8 @@ var
    inquirer    = require('inquirer'),
    fs          = require('fs'),
    request     = require('request'),
-   properties  = require('../util/properties');
+   properties  = require('../util/properties'),
+   chalk       = require('chalk');
 
 (function () {
    var questions = [
@@ -22,7 +23,7 @@ var
    ];
 
    inquirer.prompt(questions).then(answers => {
-      var url = `https://${answers.username}:${answers.password}@developer.sitevision.se/rest-api/appsigner/signapp`,
+      var url = `https://${encodeURIComponent(answers.username)}:${encodeURIComponent(answers.password)}@developer.sitevision.se/rest-api/appsigner/signapp`,
          manifest = properties.getManifest(),
          fileName = manifest.id + '.zip',
          formData = {
@@ -41,21 +42,21 @@ var
 
       request.post({url: url, formData: formData, encoding: null}, (err, httpResponse, body) => {
          if (err) {
-            return console.error('Signing failed:', err);
+            return console.error(`${chalk.red('Signing failed:')}, ${err}`);
          }
 
          if (httpResponse.statusCode === 200) {
             var signedFileNameAndPath = properties.DIST_DIR_PATH + '/' + manifest.id + '-signed.zip';
 
             fs.writeFileSync(signedFileNameAndPath, body);
-            return console.log('Signing successful, created: ' + signedFileNameAndPath);
+            return console.log(`${chalk.green('Signing successful, created:')} ${signedFileNameAndPath}`);
          }
 
          if (httpResponse.statusCode === 401) {
-            return console.log('Signing failed: Unauthorized, check username and password');
+            return console.log(`${chalk.red('Signing failed:')} Unauthorized, check username and password`);
          }
 
-         console.log('Signing failed with statusCode: ' + httpResponse.statusCode + ' message: ' + httpResponse.statusMessage);
+         console.log(`${chalk.red('Signing failed with statusCode:')} ${httpResponse.statusCode}  message: ${httpResponse.statusMessage}`);
       });
    });
 })();
