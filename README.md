@@ -1,10 +1,14 @@
 # webapp-boilerplate
 Boilerplate code for a simple WebApp
+## Prerequisites
+* A web page running on a SiteVision server
+* [The right certificate needs to be installed on the server](https://developer.sitevision.se/docs/webapps/deployment/certificates-and-signing)
+* The REST-API needs to be activated on the web page
 ## Setup
 * `git clone https://github.com/sitevision/webapp-boilerplate.git`
 * `cd webapp-boilerplate`
 * `npm install`
-* `npm run setup`
+* `npm run setup` make sure that domain and site name conforms to the web page where the WebApp is going to be used
 ## Building
 * `npm run create-addon` create an addon with the name configured in the setup task
 * `npm run zip` compress `/src` into `/dist`
