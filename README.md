@@ -2,8 +2,8 @@
 Boilerplate code for a simple WebApp
 ## Prerequisites
 * A web page running on a SiteVision server
-* [The right certificate needs to be installed on the server](https://developer.sitevision.se/docs/webapps/deployment/certificates-and-signing)
-* The REST-API needs to be activated on the web page
+* [The right certificate installed on the server](https://developer.sitevision.se/docs/webapps/deployment/certificates-and-signing)
+* The REST-API activated on the web page
 ## Setup
 * `git clone https://github.com/sitevision/webapp-boilerplate.git`
 * `cd webapp-boilerplate`
