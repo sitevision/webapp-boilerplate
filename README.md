@@ -6,9 +6,13 @@ Boilerplate code for a simple WebApp
 * The REST-API activated on the site
 ## Setup
 To create a new project based on this boilerplate you may use [degit](https://github.com/Rich-Harris/degit) to create a copy without git history
-`degit https://github.com/sitevision/webapp-boilerplate.git webapp-boilerplate`
+```bash
+degit https://github.com/sitevision/webapp-boilerplate.git webapp-boilerplate
+```
 __OR__ if you are interested in the git history you should clone the repository
-`git clone https://github.com/sitevision/webapp-boilerplate.git`
+```bash
+git clone https://github.com/sitevision/webapp-boilerplate.git
+```
 * `cd webapp-boilerplate`
 * `npm install`
 * `npm run setup` make sure that domain and site name conforms to the site where the WebApp is going to be used
