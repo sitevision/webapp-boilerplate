@@ -1,14 +1,17 @@
 # webapp-boilerplate
 Boilerplate code for a simple WebApp
 ## Prerequisites
-* A web page running on a SiteVision server
-* [The right certificate installed on the server](https://developer.sitevision.se/docs/webapps/deployment/certificates-and-signing)
-* The REST-API activated on the web page
+* A SiteVision website
+* [A valid certifcate](https://developer.sitevision.se/docs/webapps/deployment/certificates-and-signing)
+* The REST-API activated on the site
 ## Setup
+To create a new project based on this boilerplate you may use [degit](https://github.com/Rich-Harris/degit) to create a copy without git history
+* `degit https://github.com/sitevision/webapp-boilerplate.git webapp-boilerplate`
+__OR__ if you are interested in the git history you should clone the repository
 * `git clone https://github.com/sitevision/webapp-boilerplate.git`
 * `cd webapp-boilerplate`
 * `npm install`
-* `npm run setup` make sure that domain and site name conforms to the web page where the WebApp is going to be used
+* `npm run setup` make sure that domain and site name conforms to the site where the WebApp is going to be used
 ## Building
 * `npm run create-addon` create an addon with the name configured in the setup task
 * `npm run zip` compress `/src` into `/dist`
