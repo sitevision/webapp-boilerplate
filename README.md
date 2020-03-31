@@ -2,7 +2,7 @@
 Boilerplate code for a simple WebApp
 ## Prerequisites
 * A SiteVision website
-* [A valid certifcate](https://developer.sitevision.se/docs/webapps/deployment/certificates-and-signing)
+* [A valid certificate](https://developer.sitevision.se/docs/webapps/deployment/certificates-and-signing)
 * The REST-API activated on the site
 ## Setup
 To create a new project based on this boilerplate you may use [degit](https://github.com/Rich-Harris/degit) to create a copy without git history
