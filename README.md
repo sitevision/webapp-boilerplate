@@ -1,3 +1,4 @@
+# DEPRECATED use create-sitevision-app
 # webapp-boilerplate
 Boilerplate code for a simple WebApp
 ## Prerequisites
